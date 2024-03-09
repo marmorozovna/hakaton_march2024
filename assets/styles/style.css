@@ -9,7 +9,7 @@
 body {
     padding: 0 20px;
    font-family: Arial, sans-serif;
-   background: #f2f2f2 url(../image/petals.png);
+   background: radial-gradient(circle, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 68%), url(../image/petals.png);
    background-size: cover;
    background-repeat: repeat;
    display: flex;
