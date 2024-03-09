@@ -44,8 +44,11 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeHttpRequests((authorize)
                         -> authorize
-                        .requestMatchers("/login").permitAll()
                         .anyRequest().authenticated()).httpBasic();
+        http.formLogin(form -> form
+                .loginPage("/login.html")
+                .defaultSuccessUrl("/index.html")
+                .permitAll());
         return http.build();
     }
 }
