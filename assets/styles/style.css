@@ -1,0 +1,143 @@
+   body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+   }
+
+   .inputs-field {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      margin: 60px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   }
+
+   .input-field {
+      margin: 10px 5px;
+      position: relative;
+   }
+
+   input[type="text"],
+   select {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+   }
+
+   input[type="text"]::placeholder,
+   select::placeholder {
+      color: #999;
+   }
+
+   label {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: #999;
+      pointer-events: none;
+      transition: all 0.3s ease;
+   }
+
+   input[type="text"]:focus + label,
+   select:focus + label,
+   input[type="text"]:not(:placeholder-shown) + label,
+   select:not(:placeholder-shown) + label {
+      top: 10px;
+      font-size: 12px;
+      color: #333;
+   }
+
+   .choosingTask {
+      appearance: none;
+      background-color: #fff;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5"><path fill="%23999" d="M4 5L0 0h8z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 10px top 50%;
+      background-size: 8px;
+      padding-right: 30px; 
+   }
+
+
+   .matrix-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+   }
+   .matrix__quadrant {
+      padding: 20px;
+   }
+   .quadrant-1 {
+      border-bottom: 1px solid #000;
+   }
+   .quadrant-2 {
+      border-left: 1px solid #000;
+   }
+   .quadrant-3 {
+      border-right: 1px solid #000;
+   }
+   .quadrant-4 {
+      border-top: 1px solid #000;
+   }
+   .matrix__header {
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+   }
+   .matrix__tasks {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+   }
+   .matrix__task {
+      margin-bottom: 10px;
+   }
+
+
+   .container-blocks {
+      margin-top: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+   }
+
+   .container_joke,
+   .container_affirmation {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 200px;
+      text-align: center;
+   }
+
+   .btn {
+      background-color: #575f67;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px;
+   }
+
+   .info {
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+   }
+
+   .text {
+      margin: 0;
+   }
