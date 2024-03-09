@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="users added db" author="morozovna">
+        <sql>
+
+            create table if not exists users(
+            id bigserial PRIMARY KEY,
+            username varchar(50) not null,
+            name varchar(50) not null,
+            password varchar(500) not null
+            );
+
+            create table if not exists roles (
+            id bigserial PRIMARY KEY,
+            name varchar(50) not null
+            );
+
+            Create table if not exists user_role (
+            user_id bigint NOT NULL,
+            role_id bigint NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES users (id),
+            FOREIGN KEY (role_id) REFERENCES roles (id)
+            );
+            Insert into users(name, username, password) values
+            ('Администратор', 'admin', '$2a$10$.IgZJ5UWLGJGkBP2K5zkwuB3RqT3yFkVZ1GOzUN0l6yv1wMpPqTKG'),
+            ('Тестовый пользователь','user', '$2a$10$aXNexzzRcve4AndvuDBSF.iDThVrh/vegzCX8975W2D5AlenroAGa');
+
+            Insert into roles(name) values
+            ('ROLE_ADMIN'),
+            ('ROLE_USER');
+
+            Insert into user_role(user_id,role_id) values
+            (1,1),
+            (1,2),
+            (2,2);
+        </sql>
+    </changeSet>
+</databaseChangeLog>
