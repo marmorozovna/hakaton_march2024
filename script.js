@@ -3,6 +3,53 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.btnAddTask').addEventListener('click', addTask);
 });
 
+const joke = document.querySelector('.joke__text');
+const jokeBtn = document.querySelector('.btnGetJoke');
+const affirmation = document.querySelector('.affirmation__text');
+const affirmationBtn = document.querySelector('.btnGetAffirmation');
+
+function jokeApiReq () {
+    fetch("https://v2.jokeapi.dev/joke/Miscellaneous?blacklistFlags=religious,political,racist", {
+        method: "GET",
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {   
+        joke.textContent = data.joke;
+    })
+    .catch(error => {
+        console.error(error);
+        joke.textContent = `Server is not responding: ${error.message}`;
+    });
+    }
+    
+    
+    function affirmationApiReq () {
+        fetch("https://type.fit/api/quotes", {
+        method: "GET",
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {   
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const randomQuote = data[randomIndex].text;
+        affirmation.textContent = randomQuote;
+    })
+    .catch(error => {
+        console.error(error);
+        affirmation.textContent = `Server is not responding: ${error.message}`;
+    });
+    }
+    
+    jokeBtn.addEventListener('click', event => {
+        event.preventDefault();
+        jokeApiReq();
+    })
+    
 function addTask() {
     // извлекаю task input и selected category
     var taskInput = document.getElementById('task-input').value;
@@ -21,7 +68,12 @@ function addTask() {
     // добавляем задачу в нужный квадрант
     var quadrantTasks = document.getElementById(selectedCategory + 'Tasks');
     quadrantTasks.appendChild(taskElement);
+    
 
+    affirmationBtn.addEventListener('click', event => {
+        event.preventDefault();
+        affirmationApiReq();
+    })
     // очищаем поле ввода задачи (task input field)
     document.getElementById('task-input').value = '';
 }
