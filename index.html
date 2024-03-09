@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
+
 <body>
     <div class="inputs-field">
         <div class="input-field">
             <input type="text" name="task" id="task-input" placeholder="Enter the task">
-        <label for="task-input"></label>
+            <label for="task-input"></label>
         </div>
         <div class="input-field">
             <label for="selectedImportance"></label>
             <select name="choosingTask" id="selectedImportance" class="choosingTask">
-                <option value = "" selected disabled hidden>Select a category</option>
-                <option value ="importantUrgent">Important & Urgent</options>
-                <option value ="importantNotUrgent">Important & Not Urgent</options>
-                <option value ="notImportantUrgent">Not Important & Urgent</options>
-                <option value ="notImportantNotUrgent">Not Important & Not Urgent</options>
+                <option value="" selected disabled hidden>Select a category</option>
+                <option value="importantUrgent">Important & Urgent</options>
+                <option value="importantNotUrgent">Important & Not Urgent</options>
+                <option value="notImportantUrgent">Not Important & Urgent</options>
+                <option value="notImportantNotUrgent">Not Important & Not Urgent</options>
             </select>
         </div>
         <button class="btnAddTask">Add a task</button>
@@ -54,16 +56,17 @@
         <div class="container_joke">
             <button class="btnGetJoke btn">Get a joke</button>
             <div class="info">
-                <p class="text">text</p>
+                <p class="joke__text">text</p>
             </div>
         </div>
         <div class="container_affirmation">
             <button class="btnGetAffirmation btn">Get affirmation</button>
             <div class="info">
-                <p class="text">text</p>
+                <p class="affirmation__text">text</p>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
