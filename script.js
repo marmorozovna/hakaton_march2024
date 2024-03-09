@@ -55,7 +55,7 @@ function jokeApiReq () {
     }
     
     
-    // функция для affirmations jokes через API
+    // функция для запроса affirmations через API
 
     function affirmationApiReq () {
         fetch("https://type.fit/api/quotes", {
