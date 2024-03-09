@@ -164,13 +164,18 @@ select:not(:placeholder-shown) + label {
 }
 
 .btn {
-    background-color: #575f67;
+    background-color: #C4947C;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover{
+    background-color: #9F7963;
 }
 
 .info {
