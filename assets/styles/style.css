@@ -33,7 +33,7 @@
       font-size: 16px;
       outline: none;
    }
-
+   
    input[type="text"]::placeholder,
    select::placeholder {
       color: #999;
@@ -48,6 +48,7 @@
       pointer-events: none;
       transition: all 0.3s ease;
    }
+
 
    input[type="text"]:focus + label,
    select:focus + label,
@@ -96,15 +97,24 @@
       text-align: center;
       margin-bottom: 10px;
    }
+
    .matrix__tasks {
-      list-style-type: none;
+      /* можем исправить */
+      list-style: circle; 
       padding: 0;
       margin: 0;
    }
    .matrix__task {
       margin-bottom: 10px;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
    }
-
+   
+   .matrix__task:hover {
+      background-color: #e6e6e6;}
 
    .container-blocks {
       margin-top: 90px;
@@ -133,6 +143,14 @@
       margin-bottom: 10px;
    }
 
+   .btnAddTask {
+      background-color: lightgreen;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      
+
+   }
    .info {
       border-top: 1px solid #ccc;
       padding-top: 10px;
@@ -141,3 +159,4 @@
    .text {
       margin: 0;
    }
+
