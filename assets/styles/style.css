@@ -1,120 +1,167 @@
-   body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0px;
+}
+
+
+body {
+    padding: 0 20px;
+   font-family: Arial, sans-serif;
+   background-color: #f2f2f2;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+}
+
+.inputs-field {
+   display: flex;
+   flex-direction: row;
+   gap: 30px;
+   margin: 60px;
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    @media (max-width: 760px){
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+}
+
+.input-field {
+   margin: 10px 5px;
+}
+
+input[type="text"],
+select {
+   width: 200px;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   font-size: 16px;
+   outline: none;
+   @media (max-width: 760px){
+    width: 350px;
+   }
+   @media (max-width: 500px){
+        width: 280px;
+   }
+}
+
+input[type="text"]::placeholder,
+select::placeholder {
+   color: #999;
+}
+
+input[type="text"]:focus + label,
+select:focus + label,
+input[type="text"]:not(:placeholder-shown) + label,
+select:not(:placeholder-shown) + label {
+   top: 10px;
+   font-size: 12px;
+   color: #333;
+}
+
+.btnAddTask{
+    min-width: 90px;
+}
+
+.choosingTask {
+   appearance: none;
+   background-color: #fff;
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5"><path fill="%23999" d="M4 5L0 0h8z"/></svg>');
+   background-repeat: no-repeat;
+   background-position: right 10px top 50%;
+   background-size: 8px;
+   padding-right: 30px; 
+}
+
+.choosingTask option {
+    background-color: #f0f0f0; 
+    color: inherit; 
+    padding: 5px 10px; 
+    border: none; 
+    border-radius: 5px; 
+}
+
+.choosingTask option:hover {
+    background-color: #e0e0e0; 
+}
+
+.choosingTask option:selected {
+    background-color: #ccc; 
+    font-weight: bold; 
+}
+
+.matrix-container {
+   max-width: 1200px;
+   margin: 0 auto;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
+}
+.matrix__quadrant {
+   padding: 20px;
+}
+.quadrant-1 {
+   border-bottom: 2px solid #333;
+   border-right: 2px solid #333;  
+}
+.quadrant-2 {
+   border-bottom: 2px solid #333; 
+}
+.quadrant-3 {
+   border-right: 2px solid #333; 
+}
+
+
+
+.matrix__header {
+   font-weight: bold;
+   text-align: center;
+   margin-bottom: 10px;
+}
+.matrix__tasks {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+.matrix__task {
+   margin-bottom: 10px;
+}
+
+
+   .container-blocks {
+      margin-top: 90px;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
-   }
+      align-items: flex-start;
+       @media (max-width: 660px){
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
-   .inputs-field {
-      display: flex;
-      flex-direction: row;
-      gap: 30px;
-      margin: 60px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   }
-
-   .input-field {
-      margin: 10px 5px;
-      position: relative;
-   }
-
-   input[type="text"],
-   select {
-      width: 200px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      outline: none;
-   }
-   
-   input[type="text"]::placeholder,
-   select::placeholder {
-      color: #999;
-   }
-
-   label {
-      position: absolute;
-      top: 50%;
-      left: 10px;
-      transform: translateY(-50%);
-      color: #999;
-      pointer-events: none;
-      transition: all 0.3s ease;
-   }
-
-
-   input[type="text"]:focus + label,
-   select:focus + label,
-   input[type="text"]:not(:placeholder-shown) + label,
-   select:not(:placeholder-shown) + label {
-      top: 10px;
-      font-size: 12px;
-      color: #333;
-   }
-
-   .choosingTask {
-      appearance: none;
-      background-color: #fff;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5"><path fill="%23999" d="M4 5L0 0h8z"/></svg>');
-      background-repeat: no-repeat;
-      background-position: right 10px top 50%;
-      background-size: 8px;
-      padding-right: 30px; 
-   }
-
-
-   .matrix-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-   }
-   .matrix__quadrant {
-      padding: 20px;
-   }
-   .quadrant-1 {
-      border-bottom: 1px solid #000;
-   }
-   .quadrant-2 {
-      border-left: 1px solid #000;
-   }
-   .quadrant-3 {
-      border-right: 1px solid #000;
-   }
-   .quadrant-4 {
-      border-top: 1px solid #000;
-   }
-   .matrix__header {
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 10px;
-   }
-
-   .matrix__tasks {
-      /* можем исправить */
-      list-style: circle; 
-      padding: 0;
-      margin: 0;
-   }
-   .matrix__task {
-      margin-bottom: 10px;
-      background-color: #f9f9f9;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
-   }
-   
-   .matrix__task:hover {
-      background-color: #e6e6e6;}
+.container_joke,
+.container_affirmation {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    @media (max-width: 660px){
+        width: 400px;
+    }
+        @media (max-width: 500px){
+            width: 280px;
+        }
+}
 
    .container-blocks {
       margin-top: 90px;
@@ -132,6 +179,21 @@
       width: 200px;
       text-align: center;
    }
+.container_joke,
+.container_affirmation {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    @media (max-width: 660px){
+        width: 400px;
+    }
+        @media (max-width: 500px){
+            width: 280px;
+        }
+}
 
    .btn {
       background-color: #575f67;
@@ -159,4 +221,5 @@
    .text {
       margin: 0;
    }
+
 
