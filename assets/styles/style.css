@@ -178,10 +178,27 @@ select:not(:placeholder-shown) + label {
     background-color: #9F7963;
 }
 
-.info {
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-}
+   .container_joke,
+   .container_affirmation {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 200px;
+      text-align: center;
+   }
+
+
+
+
+   .info {
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+   }
+
+   .text {
+      margin: 0;
+   }
 
 .text {
     /* margin: 0; */

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
+    <link rel="icon" href="./assets/icons/matrice.png" type="image/png">
+    <title>Task Manager</title>
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 <body>
@@ -13,9 +15,9 @@
         <label for="task-input"></label>
         </div>
         <div class="input-field">
-            <label for="selectedImportance"></label>
+            <label for="selectedImportance">Select a category </label>
             <select name="choosingTask" id="selectedImportance" class="choosingTask">
-                <option value = "" selected disabled hidden>Select a category</option>
+                <option value = "" selected disabled hidden>...</option>
                 <option value ="importantUrgent">Important & Urgent</option>
                 <option value ="importantNotUrgent">Important & Not Urgent</option>
                 <option value ="notImportantUrgent">Not Important & Urgent</option>
@@ -25,33 +27,26 @@
         <button class="btnAddTask btn">Add a task</button>
     </div>
     <div class="matrix-container">
-        <div class="matrix__quadrant quadrant-1 ">
+        <div class="matrix__quadrant quadrant-1">
             <h2 class="matrix__header">Important & Urgent</h2>
-            <ul class="matrix__tasks">
-                <li class="matrix__task">Task 1</li>
-            </ul>
+            <ul class="matrix__tasks" id="importantUrgentTasks"></ul>
         </div>
         <div class="matrix__quadrant quadrant-2">
             <h2 class="matrix__header">Important & Not Urgent</h2>
-            <ul class="matrix__tasks">
-                <li class="matrix__task">Task 1</li>
+            <ul class="matrix__tasks" id="importantNotUrgentTasks"></ul>
         </div>
         <div class="matrix__quadrant quadrant-3">
             <h2 class="matrix__header">Not Important & Urgent</h2>
-            <ul class="matrix__tasks">
-                <li class="matrix__task">Task 1</li>
-            </ul>
+            <ul class="matrix__tasks" id="notImportantUrgentTasks"></ul>
         </div>
         <div class="matrix__quadrant quadrant-4">
             <h2 class="matrix__header">Not Important & Not Urgent</h2>
-            <ul class="matrix__tasks">
-                <li class="matrix__task">Task 1</li>
-            </ul>
+            <ul class="matrix__tasks" id="notImportantNotUrgentTasks"></ul>
         </div>
     </div>
     <div class="container-blocks">
         <div class="container_joke">
-            <button class="btnGetJoke btn">Get joke</button>
+            <button class="btnGetJoke btn">Get a joke</button>
             <div class="info">
                 <p class="text">text</p>
             </div>
@@ -63,5 +58,6 @@
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
-</html>
+</html>  
