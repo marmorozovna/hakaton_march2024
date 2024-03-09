@@ -3,10 +3,39 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.btnAddTask').addEventListener('click', addTask);
 });
 
+function addTask() {
+    // извлекаем task input и selected category
+    var taskInput = document.getElementById('task-input').value;
+    var selectedCategory = document.getElementById('selectedImportance').value;
+
+    // проверяем если task input пустой
+    if (taskInput.trim() === "") {
+        alert("Please enter a task.");
+        return;
+    }
+
+    // создаем task element
+    var taskElement = document.createElement('li');
+    taskElement.textContent = taskInput;
+
+    // добавляем задачу в нужный квадрант
+    var quadrantTasks = document.getElementById(selectedCategory + 'Tasks');
+    quadrantTasks.appendChild(taskElement);
+    
+
+    // очищаем поле ввода задачи (task input field)
+    document.getElementById('task-input').value = '';
+}
+
+
+// получаем ссылки на элементы для jokes и affirmations
 const joke = document.querySelector('.joke__text');
 const jokeBtn = document.querySelector('.btnGetJoke');
 const affirmation = document.querySelector('.affirmation__text');
 const affirmationBtn = document.querySelector('.btnGetAffirmation');
+
+
+// функция для запроса jokes через API
 
 function jokeApiReq () {
     fetch("https://v2.jokeapi.dev/joke/Miscellaneous?blacklistFlags=religious,political,racist", {
@@ -26,6 +55,8 @@ function jokeApiReq () {
     }
     
     
+    // функция для affirmations jokes через API
+
     function affirmationApiReq () {
         fetch("https://type.fit/api/quotes", {
         method: "GET",
@@ -45,35 +76,14 @@ function jokeApiReq () {
     });
     }
     
+    // добавляем event listener к кнопкам jokes and affirmations
     jokeBtn.addEventListener('click', event => {
         event.preventDefault();
         jokeApiReq();
     })
-    
-function addTask() {
-    // извлекаю task input и selected category
-    var taskInput = document.getElementById('task-input').value;
-    var selectedCategory = document.getElementById('selectedImportance').value;
-
-    // проверяем если task input пустой
-    if (taskInput.trim() === "") {
-        alert("Please enter a task.");
-        return;
-    }
-
-    // создаем task element
-    var taskElement = document.createElement('li');
-    taskElement.textContent = taskInput;
-
-    // добавляем задачу в нужный квадрант
-    var quadrantTasks = document.getElementById(selectedCategory + 'Tasks');
-    quadrantTasks.appendChild(taskElement);
-    
 
     affirmationBtn.addEventListener('click', event => {
         event.preventDefault();
         affirmationApiReq();
     })
-    // очищаем поле ввода задачи (task input field)
-    document.getElementById('task-input').value = '';
-}
+    
