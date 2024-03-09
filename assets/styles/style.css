@@ -131,9 +131,7 @@ select:not(:placeholder-shown) + label {
    padding: 0;
    margin: 0;
 }
-.matrix__task {
-   margin-bottom: 10px;
-}
+
 
 
    .container-blocks {
@@ -206,7 +204,7 @@ select:not(:placeholder-shown) + label {
    }
 
    .btnAddTask {
-      background-color: lightgreen;
+      background-color: rgb(72, 165, 72);
       border: none;
       border-radius: 10px;
       cursor: pointer;
