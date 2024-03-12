@@ -22,7 +22,7 @@ public class UserController {
         return userService.findAllUsers();
     }
 
-    @PostMapping("/sigh-up")
+    @PostMapping("/sign-up")
     void createNewUser(@RequestBody UserCreateDto userCreateDto) {
         userService.createUser(userCreateDto);
     }
