@@ -31,6 +31,7 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeHttpRequests((authorize)
                         -> authorize
+                        .requestMatchers("/sign-up").permitAll()
                         .anyRequest().authenticated()).httpBasic();
         http.formLogin(form -> form
                 .defaultSuccessUrl("/index.html")
